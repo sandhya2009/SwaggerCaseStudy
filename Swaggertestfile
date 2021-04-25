@@ -1,0 +1,30 @@
+package io.swagger.test;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.w3c.dom.ls.LSException;
+
+import io.swagger.client.ApiException;
+import io.swagger.client.api.*;
+
+public class test 
+{
+  public static void main(String[] args) throws IOException
+  {
+    List<String> status = new ArrayList<String>();
+    status.add("sold");
+    PetApi pet = new PetApi();
+
+    try 
+    {
+      pet.updatePetWithForm("1", "nicky", "available");
+      System.out.println(pet.getPetById((long) 1).getName());
+    }
+    catch (ApiException e) 
+    {
+      e.printStackTrace();
+    }
+  }
+}
